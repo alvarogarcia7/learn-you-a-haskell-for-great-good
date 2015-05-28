@@ -1,6 +1,8 @@
 2015-05-28 1948
 
-Apparently, the function definition doubleMe does not work on the REPL
+Apparently, the function definition doubleMe does not work on the REPL. this has been solved: page 16: Remember, if you’re trying to define this function inside GHCi, you have to include a
+let before the function name. However, if you’re defining this function inside a script
+and then loading that script into GHCi, you don’t have to mess around with let.
 
 There is autocomplete on the REPL, hit TAB
 
