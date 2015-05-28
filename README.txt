@@ -56,3 +56,5 @@ Prelude> [x<=12|x<-[x*2|x<-[1..10]]]
 [True,True,True,True,True,True,False,False,False,False]
 Prelude> [x|x<-[x*2|x<-[1..10]]]
 [2,4,6,8,10,12,14,16,18,20]
+
+Destructuring is possible
