@@ -24,3 +24,15 @@ Page 8:
 *Main> "a"++" small"
 "a small"
 
+Page 9:
+*Main> [1,2,3] !! (-1)
+*** Exception: Prelude.(!!): negative index
+
+Page 38:
+*Main> 1:1:1:[]
+[1,1,1]
+*Main> 1:1:1:[] > 1:1:[]
+True
+*Main> 1:1:1:[] == 1:1:[]
+False
+
