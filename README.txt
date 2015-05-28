@@ -21,3 +21,6 @@ Page 8:
 
 ; fails because 'a ' is not a character. the error is not very descriptive, though
 
+*Main> "a"++" small"
+"a small"
+
