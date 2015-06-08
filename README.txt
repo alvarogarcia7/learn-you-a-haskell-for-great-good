@@ -100,3 +100,18 @@ To only return one solution, do:
 *Main>
 
 ! Java does not have type inference?
+
+finding the type of an expression:
+
+*Main> let x = 5
+*Main> x == 4
+False
+*Main> :t x == 4
+x == 4 :: Bool
+*Main> :t True
+True :: Bool
+*Main> :t 4==5
+4==5 :: Bool
+*Main>
+
+NOTE: "::" reads as "has type of" (page 20)
