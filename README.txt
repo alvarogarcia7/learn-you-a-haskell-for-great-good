@@ -63,3 +63,38 @@ Operator !! is for accessing arrays. Example
 
 *Main> [1,2,3] !! 1
 2
+
+Belonging to a list (java: contains): eleme
+
+4 `elem` [1, 2, 3, 4]
+True
+
+1 `elem` [0]
+False
+
+elem 1 [0]
+False
+
+page 14:
+*Main> take 20 [1,2..]
+[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+*Main>
+
+Page 19:
+Applying list comprehensions to solve equations:
+
+*Main> [ (a,b,c) | a <- [1..24], b <- [1..24], c <- [1..24], (a ^ 2) + (b ^ 2) - (c ^ 2) ==0, a + b + c == 24, a <= 10, b <= 10]
+[(6,8,10),(8,6,10)]
+
+this gives two solutions but are equivalent.
+
+in the book is expressed as:
+
+*Main> [ (a,b,c) | c <- [1..10] , b <- [1..c] , a <- [1..b] , a^2 + b^2 == c^2, a+b+c == 24]
+[(6,8,10)]
+
+To only return one solution, do:
+
+*Main> [ (a,b,c) | c <- [1..10] , b <- [1..10] , a <- [1..10] , a^2 + b^2 == c^2, a+b+c == 24, a <= b, b <= c]
+[(6,8,10)]
+*Main>
