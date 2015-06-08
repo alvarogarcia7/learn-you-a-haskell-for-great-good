@@ -153,3 +153,15 @@ Page 26:
 (^) :: (Num a, Integral b) => a -> b -> a
 *Main> :t (*)
 (*) :: Num a => a -> a -> a
+
+
+Page 26:
+*Main> (length [1,2]) + 1.1
+
+<interactive>:106:18:
+    No instance for (Fractional Int) arising from the literal `1.1'
+    In the second argument of `(+)', namely `1.1'
+    In the expression: (length [1, 2]) + 1.1
+    In an equation for `it': it = (length [1, 2]) + 1.1
+*Main> fromIntegral (length [1,2]) + 1.1
+3.1
