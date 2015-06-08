@@ -140,3 +140,9 @@ because it doesn't know what type this is.
 
 *Main> read "1" :: Int
 1
+
+! how to find operators that match the given numbers?
+
+ [x | x <- [LT .. GT], 1 (x) 2]
+
+ does not work
