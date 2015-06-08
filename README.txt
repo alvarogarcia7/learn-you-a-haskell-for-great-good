@@ -146,3 +146,10 @@ because it doesn't know what type this is.
  [x | x <- [LT .. GT], 1 (x) 2]
 
  does not work
+
+Page 26:
+
+ *Main> :t (^)
+(^) :: (Num a, Integral b) => a -> b -> a
+*Main> :t (*)
+(*) :: Num a => a -> a -> a
