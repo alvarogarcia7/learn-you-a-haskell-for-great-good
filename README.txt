@@ -115,3 +115,28 @@ True :: Bool
 *Main>
 
 NOTE: "::" reads as "has type of" (page 20)
+
+:t for functions:
+
+*Main> :t doubleMe
+doubleMe :: Num a => a -> a
+
+*Main> :t head
+head :: [a] -> a
+
+a is not a type, because it is lowercase (types are uppercase). it is a type variable. (java: generic)
+
+read is used for parsing from a string.
+
+*Main> read "2" * 2
+4
+
+note: 
+
+*Main> read "1"
+*** Exception: Prelude.read: no parse
+
+because it doesn't know what type this is.
+
+*Main> read "1" :: Int
+1
