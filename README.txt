@@ -58,3 +58,8 @@ Prelude> [x|x<-[x*2|x<-[1..10]]]
 [2,4,6,8,10,12,14,16,18,20]
 
 Destructuring is possible
+
+Operator !! is for accessing arrays. Example
+
+*Main> [1,2,3] !! 1
+2
