@@ -173,3 +173,9 @@ Page 26:
     In an equation for `it': it = (length [1, 2]) + 1.1
 *Main> fromIntegral (length [1,2]) + 1.1
 3.1
+
+
+2015-06-09-1847
+
+list comprehensions allow for destructuring:
+
