@@ -179,3 +179,26 @@ Page 26:
 
 list comprehensions allow for destructuring:
 
+*Main> [a+b | (a,b) <- [(1,2), (3,4)] ]
+[3,7]
+
+*Main> [a+b | (a,b) <- [(1,2), (3,4), (5,6)] ]
+[3,7,11]
+
+List comprehensions allow for infinite lists:
+
+the first twenty natural numbers:
+
+*Main> (take 20 [x | x <- [1..]])
+[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+
+the first 20 multiples of two:
+
+*Main> (take 20 [x | x <- [0..], x `mod` 2 == 0])
+[0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38]
+
+
+the first twenty multiples of two and three:
+
+*Main> (take 20 [x | x <- [0..], x `mod` 2 == 0, x `mod` 3 == 0])
+[0,6,12,18,24,30,36,42,48,54,60,66,72,78,84,90,96,102,108,114]
