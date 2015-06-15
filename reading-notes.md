@@ -348,3 +348,30 @@ True
 Page 31: guards. similar to an if-then-else.
 
 evaluates boolean expressions, and enters only on the first one.
+
+Page 35: defining variables in the local scope:
+
+Prelude> [let square x = x * x in (square 5, square 3, square 2)]
+[(25,9,4)]
+
+Therefore, they're not available outside the local scope:
+
+Prelude> let square x = x * x in (square 5, square 3, square 2)
+(25,9,4)
+Prelude> square
+
+<interactive>:223:1: Not in scope: `square'
+
+Page 45:
+
+compareWithHundred :: (Num a, Ord a) => a -> Ordering
+compareWithHundred x = compare 100 x
+
+compareWithHundred :: (Num a, Ord a) => a -> Ordering
+compareWithHundred = compare 100
+
+are equivalent. See 
+
+compareWithHundred x = compare 100 x
+
+as an equation. As x is on both sides, it can be removed 
