@@ -374,4 +374,7 @@ are equivalent. See
 
 compareWithHundred x = compare 100 x
 
-as an equation. As x is on both sides, it can be removed 
+as an equation. As x is on both sides, it can be removed
+
+Page 48: map
+Page 49: filter 
