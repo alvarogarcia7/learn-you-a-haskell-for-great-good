@@ -281,3 +281,18 @@ or, without intermediate steps:
 *Main> let evenNumbers = [x| x<-[0..], x `mod` 2 == 0]
 *Main> take 20 evenNumbers
 [0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38]
+
+
+Generating some primes:
+
+*Main> let coprimesWith2 = 2:[x|x<-allPossiblePrimes, x `mod` 2 /= 0]
+*Main> take 20 coprimesWith2
+[2,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39]
+
+*Main> let coprimesWith2And3 = 3:[x|x<-coprimesWith2, x `mod` 3 /= 0]
+*Main> take 20 coprimesWith2And3
+[3,2,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53,55]
+
+Note that the list is no longer sorted
+
+? Is it possible using only list comprehensions to generate prime numbers? (even if this way of calculating them is inefficient)
