@@ -202,3 +202,62 @@ the first twenty multiples of two and three:
 
 *Main> (take 20 [x | x <- [0..], x `mod` 2 == 0, x `mod` 3 == 0])
 [0,6,12,18,24,30,36,42,48,54,60,66,72,78,84,90,96,102,108,114]
+
+the first part can be used as a 'map':
+
+*Main> (take 20 [x `mod` 2 == 0 | x <- [0..]])
+[True,False,True,False,True,False,True,False,True,False,True,False,True,False,True,False,True,False,True,False]
+
+The list comprehensions can be chained (this has already been seen):
+
+*Main> (take 20 [x|x<-[x `mod` 2 == 0 | x <- [0..]], x == True])
+[True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True]
+
+Note: in this case, as the list is infinite, there will always be 20 True, given, that we are filtering x == True and taking 20.
+
+*Main> let allNaturals = [0..]
+*Main> (take 20 allNaturals )
+[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+
+*Main> let numberAndItsEvenness = [(x, x `mod` 2 ==0)|x<-allNaturals]
+*Main> (take 20 numberAndItsEvenness )
+[(0,True),(1,False),(2,True),(3,False),(4,True),(5,False),(6,True),(7,False),(8,True),(9,False),(10,True),(11,False),(12,True),(13,False),(14,True),(15,False),(16,True),(17,False),(18,True),(19,False)]
+
+
+*Main> let evenNumbers = [x| (a,b) <- numberAndItsEvenness , b == True]
+*Main> (take 20 evenNumbers )
+[GT,GT,GT,GT,GT,GT,GT,GT,GT,GT,GT,GT,GT,GT,GT,GT,GT,GT,GT,GT]
+
+??: what is x, then?
+
+*Main> x
+GT
+
+Failed try to store the list and its components at the same time:
+
+GT
+*Main> let evenNumbers = [x| x=(a,b) <- numberAndItsEvenness , b == True]
+
+<interactive>:135:24: parse error on input `='
+*Main> let evenNumbers = [x| let x = (a,b), x <- numberAndItsEvenness , b == True]
+
+<interactive>:136:32: Not in scope: `a'
+
+<interactive>:136:34: Not in scope: `b'
+
+<interactive>:136:66: Not in scope: `b'
+*Main> let evenNumbers = [x| x <- numberAndItsEvenness , (a,b) = x b == True]
+
+<interactive>:137:57: parse error on input `='
+*Main> let evenNumbers = [x| x <- numberAndItsEvenness , (a,b) = x, b == True]
+
+<interactive>:138:57: parse error on input `='
+*Main> let evenNumbers = [x| x <- numberAndItsEvenness , (a,b) = x, b == True]
+
+Documentation on list comprehensions: https://wiki.haskell.org/List_comprehension
+
+This has the downside of destructuring the tuple to later assemble it again:
+
+*Main> let evenNumbers = [(a,b)| (a, b) <- numberAndItsEvenness, b == True]
+*Main> take 20 evenNumbers
+[(0,True),(2,True),(4,True),(6,True),(8,True),(10,True),(12,True),(14,True),(16,True),(18,True),(20,True),(22,True),(24,True),(26,True),(28,True),(30,True),(32,True),(34,True),(36,True),(38,True)]
