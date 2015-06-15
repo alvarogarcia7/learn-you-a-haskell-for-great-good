@@ -344,3 +344,7 @@ Ok, modules loaded: Main.
 *Main> let st = "qwertyuiopasdfghjklñ."
 *Main> (length st == length' st) && (length'' st == length st)
 True
+
+Page 31: guards. similar to an if-then-else.
+
+evaluates boolean expressions, and enters only on the first one.
