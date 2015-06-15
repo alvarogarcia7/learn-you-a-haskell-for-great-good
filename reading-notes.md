@@ -177,10 +177,12 @@ Page 26:
 
 2015-06-09-1847
 
-list comprehensions allow for destructuring:
+list comprehensions allow for pattern matching:
 
 *Main> [a+b | (a,b) <- [(1,2), (3,4)] ]
 [3,7]
+
+(this is similar to an example in page 29)
 
 *Main> [a+b | (a,b) <- [(1,2), (3,4), (5,6)] ]
 [3,7,11]
