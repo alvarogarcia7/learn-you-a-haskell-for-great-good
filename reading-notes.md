@@ -296,3 +296,16 @@ Generating some primes:
 Note that the list is no longer sorted
 
 ? Is it possible using only list comprehensions to generate prime numbers? (even if this way of calculating them is inefficient)
+
+Page 27: pattern matching
+
+*Main> :l baby.hs
+[1 of 1] Compiling Main             ( baby.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> no
+nonExhaustivePatternMatching  notElem
+not
+*Main> nonExhaustivePatternMatching 5
+"five"
+*Main> nonExhaustivePatternMatching 6
+"*** Exception: baby.hs:(22,1)-(26,39): Non-exhaustive patterns in function nonExhaustivePatternMatching

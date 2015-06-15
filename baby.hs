@@ -17,3 +17,11 @@ sayMe 3 = "Three!"
 sayMe 4 = "Four!"
 sayMe 5 = "Five!"
 sayMe x = "Not between 1 and 5"
+
+nonExhaustivePatternMatching :: (Integral number) => number -> String
+nonExhaustivePatternMatching 1 = "one"
+nonExhaustivePatternMatching 2 = "two"
+nonExhaustivePatternMatching 3 = "three"
+nonExhaustivePatternMatching 4 = "four"
+nonExhaustivePatternMatching 5 = "five"
+-- there is no generic catcher after five
