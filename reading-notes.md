@@ -261,3 +261,23 @@ This has the downside of destructuring the tuple to later assemble it again:
 *Main> let evenNumbers = [(a,b)| (a, b) <- numberAndItsEvenness, b == True]
 *Main> take 20 evenNumbers
 [(0,True),(2,True),(4,True),(6,True),(8,True),(10,True),(12,True),(14,True),(16,True),(18,True),(20,True),(22,True),(24,True),(26,True),(28,True),(30,True),(32,True),(34,True),(36,True),(38,True)]
+
+But can be used to filter and only get the result:
+
+*Main> let evenNumbers = [a| (a, b) <- numberAndItsEvenness, b == True]
+*Main> take 20 evenNumbers
+[0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38]
+
+but is the same as:
+
+*Main> let evenNumbers = [x| x<-[0,2..]]
+*Main> take 20 evenNumbers
+[0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38]
+
+(because it can be simplified)
+
+or, without intermediate steps: 
+
+*Main> let evenNumbers = [x| x<-[0..], x `mod` 2 == 0]
+*Main> take 20 evenNumbers
+[0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38]
