@@ -25,3 +25,11 @@ nonExhaustivePatternMatching 3 = "three"
 nonExhaustivePatternMatching 4 = "four"
 nonExhaustivePatternMatching 5 = "five"
 -- there is no generic catcher after five
+
+length' :: (Num b) => [a] -> b
+length' [] = 0
+length' (_:xs) = 1 + length' xs
+
+length'' :: (Num b) => [a] -> b
+length'' [] = 0
+length'' (_:xs) = length'' xs + 1

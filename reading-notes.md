@@ -319,3 +319,21 @@ head' [] = error "Can't call head on an empty list, dummy!"
 head' (x:_) = x
 
 Page 30: a list with only one element is called a ``a singleton list``
+
+Page 30: apparently, there is no problem defining the recursion as the last part of the function or not:
+
+length' :: (Num b) => [a] -> b
+length' [] = 0
+length' (_:xs) = 1 + length' xs
+
+length'' :: (Num b) => [a] -> b
+length'' [] = 0
+length'' (_:xs) = length'' xs + 1
+
+
+*Main> :l baby.hs
+[1 of 1] Compiling Main             ( baby.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> let st = "qwertyuiopasdfghjklñ."
+*Main> (length st == length' st) && (length'' st == length st)
+True
