@@ -311,3 +311,11 @@ not
 "five"
 *Main> nonExhaustivePatternMatching 6
 "*** Exception: baby.hs:(22,1)-(26,39): Non-exhaustive patterns in function nonExhaustivePatternMatching
+
+Page 29: a runtime error can be produced with the keyword / operator (?) ``error``:
+
+head' :: [a] -> a
+head' [] = error "Can't call head on an empty list, dummy!"
+head' (x:_) = x
+
+Page 30: a list with only one element is called a ``a singleton list``
