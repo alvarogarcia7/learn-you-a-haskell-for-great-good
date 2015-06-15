@@ -256,6 +256,13 @@ GT
 <interactive>:138:57: parse error on input `='
 *Main> let evenNumbers = [x| x <- numberAndItsEvenness , (a,b) = x, b == True]
 
+This can be solved with "patterns" (explained in page 30)
+
+*Main> let numberAndItsEvenness = [(0, True), (1,False), (2, True)]
+*Main> let evenNumbers = [x| x@(a, b) <- numberAndItsEvenness, b == True]
+*Main> evenNumbers
+[(0,True),(2,True)]
+
 Documentation on list comprehensions: https://wiki.haskell.org/List_comprehension
 
 This has the downside of destructuring the tuple to later assemble it again:
