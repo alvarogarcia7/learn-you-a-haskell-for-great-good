@@ -377,4 +377,6 @@ compareWithHundred x = compare 100 x
 as an equation. As x is on both sides, it can be removed
 
 Page 48: map
-Page 49: filter 
+Page 49: filter
+
+left it at page 53, only folds and horses 
