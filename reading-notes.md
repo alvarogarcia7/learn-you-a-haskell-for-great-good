@@ -453,3 +453,8 @@ to see the time difference, activate this in the REPL:
 
 *Main> map_right succ (take 10000 [1..])
 (2.20 secs,    19.293.144 bytes)
+
+Page 55: 
+
+One big difference is that right folds
+work on infinite lists, whereas left ones don't!
