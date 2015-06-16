@@ -396,3 +396,62 @@ it has to be assigned to a variable:
 Prelude> let sum = (\a b -> a + b)
 Prelude> sum 1 2
 3
+
+
+Page 55: why sometimes foldr and others foldl?
+
+for example, for implementing ``map``, access to the right-most element (last) of a list is expensive. Doing it to the left-most (first) is cheap:
+
+Wrong implementation (defect in order):
+
+-- the collection is not expressed
+*Main> let map_left f = foldl (\acc current -> [(f current)]++acc) []
+*Main> map_left succ [1,2]
+[3,2]
+
+Wrong implementation (expensive):
+
+-- the collection is not expressed
+*Main> let map_left f = foldl (\acc current -> acc++[(f current)]) []
+*Main> [1]++[2]
+[1,2]
+*Main> map_left succ [1,2]
+[2,3]
+*Main> map_left succ (map_left succ [1,2])
+[3,4]
+
+
+Wrong (typo in syntax "::" vs ":"):
+
+*Main> let map_right f = foldr (\current acc -> (f current)::acc) []
+
+<interactive>:271:43:
+    Couldn't match expected type `a -> acc' with actual type `t'
+      because type variable `acc' would escape its scope
+    This (rigid, skolem) type variable is bound by
+      an expression type signature: acc
+      at <interactive>:271:42-57
+    Relevant bindings include
+      current :: a (bound at <interactive>:271:27)
+      f :: t (bound at <interactive>:271:15)
+      map_right :: t -> [a] -> [t1] (bound at <interactive>:271:5)
+    In the expression: (f current) :: acc
+    In the first argument of `foldr', namely
+      `(\ current acc -> (f current) :: acc)'
+    In the expression: foldr (\ current acc -> (f current) :: acc) []
+
+After fixing the syntax error: 
+
+*Main> let map_right f = foldr (\current acc -> (f current):acc) []
+*Main> map_right succ [1,2]
+[2,3]
+
+to see the time difference, activate this in the REPL:
+
+*Main> :set +s
+*Main> map_left succ (take 10000 [1..])
+[...]
+(5.48 secs, 2.081.744.552 bytes)
+
+*Main> map_right succ (take 10000 [1..])
+(2.20 secs,    19.293.144 bytes)
