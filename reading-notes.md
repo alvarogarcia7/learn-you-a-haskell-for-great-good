@@ -451,8 +451,14 @@ to see the time difference, activate this in the REPL:
 [...]
 (5.48 secs, 2.081.744.552 bytes)
 
+After 5 executions, the results are: average = 5,89s, stdev = 0,54s. values=6,08;6,75;5,43;5,71;5,48;5,89;
+
 *Main> map_right succ (take 10000 [1..])
 (2.20 secs,    19.293.144 bytes)
+
+After 5 executions, the results are: average = 2,17s, stdev = 0,33s. values=2,37;1,79;2,09;1,98;2,62;2,17;
+
+
 
 Page 55: 
 
