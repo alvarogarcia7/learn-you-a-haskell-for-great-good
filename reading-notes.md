@@ -379,8 +379,6 @@ as an equation. As x is on both sides, it can be removed
 Page 48: map
 Page 49: filter
 
-left it at page 53, only folds and horses 
-
 Page 54: Lambda
 
 Note: it cannot be written directly to the GHCi:
