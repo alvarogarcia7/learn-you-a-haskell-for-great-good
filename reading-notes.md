@@ -514,3 +514,8 @@ Page 61: Import
 ``Import`` in a script
 
 ``:m + Data.List`` in the GHCI
+
+Haven't read
+
+*Main> ["7."++ show x|x<-[3..6]]
+["7.3","7.4","7.5","7.6"]
