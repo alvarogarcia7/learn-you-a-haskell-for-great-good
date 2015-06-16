@@ -477,3 +477,34 @@ Page 56: implementing core functions using foldr1, foldr, foldl1, foldl:
 (0.00 secs, 0 bytes)
 
 Conclusion, even though the book says that is better to implement head using pattern matching, in terms of performance, it is apparently the same. Also, the measuring is too high for these amounts
+
+Page 56: scanr1
+
+*Main> scanr1 (+) [1,2,3]
+[6,5,3]
+
+Page 56: scanl1
+
+*Main> scanl1 (+) [1,2,3]
+[1,3,6]
+
+This can be seen as the list of f([x 0..k]), where k=0..n:
+
+*Main> foldl1 (+) [1]
+1
+*Main> foldl1 (+) [1,2]
+3
+*Main> foldl1 (+) [1,2,3]
+6
+
+-- warning: the first [1,2,3] are the elements to take, not the values
+*Main> [foldl1 (+) x| size <- [1,2,3], let x =(take size [1,2,3])]
+[1,3,6]
+
+More generic, without derived attributes (such as ``length xs``:
+
+*Main> let xs = [1,2,3]
+*Main> [foldl1 (+) x| size <- [1..(length xs)], let x = (take size xs)]
+[1,3,6]
+
+Note: filter does not work on infinite lists, prefer takeWhile
