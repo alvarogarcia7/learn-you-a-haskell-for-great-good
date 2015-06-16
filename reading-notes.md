@@ -519,3 +519,5 @@ Haven't read
 
 *Main> ["7."++ show x|x<-[3..6]]
 ["7.3","7.4","7.5","7.6"]
+
+finish reading at record syntax, page 88
