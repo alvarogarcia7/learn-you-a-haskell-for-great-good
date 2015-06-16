@@ -33,3 +33,8 @@ length' (_:xs) = 1 + length' xs
 length'' :: (Num b) => [a] -> b
 length'' [] = 0
 length'' (_:xs) = length'' xs + 1
+
+-- page 54
+
+sum' :: (Num a) => [a] -> a
+sum' xs = foldl (\acc x -> acc + x) 0 xs

@@ -380,3 +380,19 @@ Page 48: map
 Page 49: filter
 
 left it at page 53, only folds and horses 
+
+Page 54: Lambda
+
+Note: it cannot be written directly to the GHCi:
+Prelude> (\a b -> a + b)
+
+<interactive>:234:1:
+    No instance for (Show (a0 -> a0 -> a0))
+      arising from a use of `print'
+    In a stmt of an interactive GHCi command: print it
+
+it has to be assigned to a variable:
+
+Prelude> let sum = (\a b -> a + b)
+Prelude> sum 1 2
+3
