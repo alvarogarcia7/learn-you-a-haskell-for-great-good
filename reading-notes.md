@@ -508,3 +508,9 @@ More generic, without derived attributes (such as ``length xs``:
 [1,3,6]
 
 Note: filter does not work on infinite lists, prefer takeWhile
+
+Page 61: Import
+
+``Import`` in a script
+
+``:m + Data.List`` in the GHCI
