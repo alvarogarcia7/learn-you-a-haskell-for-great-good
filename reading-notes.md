@@ -464,3 +464,16 @@ Page 55:
 
 One big difference is that right folds
 work on infinite lists, whereas left ones don't!
+
+Page 56: implementing core functions using foldr1, foldr, foldl1, foldl:
+
+*Main> let head' = foldr1 (\x _ -> x)
+(0.02 secs, 0 bytes)
+*Main> head' (take 1000000 [1..])
+1
+(0.00 secs, 0 bytes)
+*Main> head (take 1000000 [1..])
+1
+(0.00 secs, 0 bytes)
+
+Conclusion, even though the book says that is better to implement head using pattern matching, in terms of performance, it is apparently the same. Also, the measuring is too high for these amounts
