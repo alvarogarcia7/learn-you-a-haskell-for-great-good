@@ -68,12 +68,13 @@ Prelude> [x|x<-[x*2|x<-[1..10]]]
 Destructuring is possible
 
 Operator !! is for accessing arrays. Example
-
+```
 *Main> [1,2,3] !! 1
 2
+```
 
 Belonging to a list (java: contains): eleme
-
+```
 4 `elem` [1, 2, 3, 4]
 True
 
@@ -82,35 +83,42 @@ False
 
 elem 1 [0]
 False
+```
 
 page 14:
+```
 *Main> take 20 [1,2..]
 [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-*Main>
+```
 
 Page 19:
 Applying list comprehensions to solve equations:
 
+```
 *Main> [ (a,b,c) | a <- [1..24], b <- [1..24], c <- [1..24], (a ^ 2) + (b ^ 2) - (c ^ 2) ==0, a + b + c == 24, a <= 10, b <= 10]
 [(6,8,10),(8,6,10)]
+```
 
 this gives two solutions but are equivalent.
 
 in the book is expressed as:
-
+```
 *Main> [ (a,b,c) | c <- [1..10] , b <- [1..c] , a <- [1..b] , a^2 + b^2 == c^2, a+b+c == 24]
 [(6,8,10)]
+```
 
 To only return one solution, do:
 
+```
 *Main> [ (a,b,c) | c <- [1..10] , b <- [1..10] , a <- [1..10] , a^2 + b^2 == c^2, a+b+c == 24, a <= b, b <= c]
 [(6,8,10)]
 *Main>
+```
 
 ! Java does not have type inference?
 
 finding the type of an expression:
-
+```
 *Main> let x = 5
 *Main> x == 4
 False
@@ -121,49 +129,65 @@ True :: Bool
 *Main> :t 4==5
 4==5 :: Bool
 *Main>
+```
 
 NOTE: "::" reads as "has type of" (page 20)
 
 :t for functions:
 
+```
 *Main> :t doubleMe
 doubleMe :: Num a => a -> a
+```
 
+```
 *Main> :t head
 head :: [a] -> a
+```
 
 a is not a type, because it is lowercase (types are uppercase). it is a type variable. (java: generic)
 
 read is used for parsing from a string.
 
+```
 *Main> read "2" * 2
 4
+```
 
 note: 
 
+```
 *Main> read "1"
 *** Exception: Prelude.read: no parse
+```
 
 because it doesn't know what type this is.
 
+```
 *Main> read "1" :: Int
 1
+```
 
 ! how to find operators that match the given numbers?
 
+```
  [x | x <- [LT .. GT], 1 (x) 2]
+```
 
  does not work
 
 Page 26:
 
+```
  *Main> :t (^)
 (^) :: (Num a, Integral b) => a -> b -> a
 *Main> :t (*)
 (*) :: Num a => a -> a -> a
+```
 
 
 Page 26:
+```
 *Main> (length [1,2]) + 1.1
 
 <interactive>:106:18:
@@ -173,50 +197,65 @@ Page 26:
     In an equation for `it': it = (length [1, 2]) + 1.1
 *Main> fromIntegral (length [1,2]) + 1.1
 3.1
+```
 
 
 2015-06-09-1847
 
 list comprehensions allow for pattern matching:
 
+```
 *Main> [a+b | (a,b) <- [(1,2), (3,4)] ]
 [3,7]
+```
 
 (this is similar to an example in page 29)
 
+```
 *Main> [a+b | (a,b) <- [(1,2), (3,4), (5,6)] ]
 [3,7,11]
+```
 
 List comprehensions allow for infinite lists:
 
 the first twenty natural numbers:
 
+```
 *Main> (take 20 [x | x <- [1..]])
 [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+```
 
 the first 20 multiples of two:
 
+```
 *Main> (take 20 [x | x <- [0..], x `mod` 2 == 0])
 [0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38]
-
+```
 
 the first twenty multiples of two and three:
 
+```
 *Main> (take 20 [x | x <- [0..], x `mod` 2 == 0, x `mod` 3 == 0])
 [0,6,12,18,24,30,36,42,48,54,60,66,72,78,84,90,96,102,108,114]
+```
 
 the first part can be used as a 'map':
 
+```
 *Main> (take 20 [x `mod` 2 == 0 | x <- [0..]])
 [True,False,True,False,True,False,True,False,True,False,True,False,True,False,True,False,True,False,True,False]
+```
 
 The list comprehensions can be chained (this has already been seen):
 
+```
 *Main> (take 20 [x|x<-[x `mod` 2 == 0 | x <- [0..]], x == True])
 [True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True]
+```
 
 Note: in this case, as the list is infinite, there will always be 20 True, given, that we are filtering x == True and taking 20.
 
+```
 *Main> let allNaturals = [0..]
 *Main> (take 20 allNaturals )
 [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
@@ -229,15 +268,18 @@ Note: in this case, as the list is infinite, there will always be 20 True, given
 *Main> let evenNumbers = [x| (a,b) <- numberAndItsEvenness , b == True]
 *Main> (take 20 evenNumbers )
 [GT,GT,GT,GT,GT,GT,GT,GT,GT,GT,GT,GT,GT,GT,GT,GT,GT,GT,GT,GT]
+```
 
 ??: what is x, then?
 
+```
 *Main> x
 GT
+```
 
 Failed try to store the list and its components at the same time:
 
-GT
+```
 *Main> let evenNumbers = [x| x=(a,b) <- numberAndItsEvenness , b == True]
 
 <interactive>:135:24: parse error on input `='
@@ -255,45 +297,56 @@ GT
 
 <interactive>:138:57: parse error on input `='
 *Main> let evenNumbers = [x| x <- numberAndItsEvenness , (a,b) = x, b == True]
+```
 
 This can be solved with "patterns" (explained in page 30)
 
+```
 *Main> let numberAndItsEvenness = [(0, True), (1,False), (2, True)]
 *Main> let evenNumbers = [x| x@(a, b) <- numberAndItsEvenness, b == True]
 *Main> evenNumbers
 [(0,True),(2,True)]
+```
 
 Documentation on list comprehensions: https://wiki.haskell.org/List_comprehension
 
 This has the downside of destructuring the tuple to later assemble it again:
 
+```
 *Main> let evenNumbers = [(a,b)| (a, b) <- numberAndItsEvenness, b == True]
 *Main> take 20 evenNumbers
 [(0,True),(2,True),(4,True),(6,True),(8,True),(10,True),(12,True),(14,True),(16,True),(18,True),(20,True),(22,True),(24,True),(26,True),(28,True),(30,True),(32,True),(34,True),(36,True),(38,True)]
+```
 
 But can be used to filter and only get the result:
 
+```
 *Main> let evenNumbers = [a| (a, b) <- numberAndItsEvenness, b == True]
 *Main> take 20 evenNumbers
 [0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38]
+```
 
 but is the same as:
 
+```
 *Main> let evenNumbers = [x| x<-[0,2..]]
 *Main> take 20 evenNumbers
 [0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38]
+```
 
 (because it can be simplified)
 
 or, without intermediate steps: 
 
+```
 *Main> let evenNumbers = [x| x<-[0..], x `mod` 2 == 0]
 *Main> take 20 evenNumbers
 [0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38]
-
+```
 
 Generating some primes:
 
+```
 *Main> let coprimesWith2 = 2:[x|x<-allPossiblePrimes, x `mod` 2 /= 0]
 *Main> take 20 coprimesWith2
 [2,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39]
@@ -301,6 +354,7 @@ Generating some primes:
 *Main> let coprimesWith2And3 = 3:[x|x<-coprimesWith2, x `mod` 3 /= 0]
 *Main> take 20 coprimesWith2And3
 [3,2,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53,55]
+```
 
 Note that the list is no longer sorted
 
@@ -308,27 +362,29 @@ Note that the list is no longer sorted
 
 Page 27: pattern matching
 
+```
 *Main> :l baby.hs
 [1 of 1] Compiling Main             ( baby.hs, interpreted )
 Ok, modules loaded: Main.
-*Main> no
-nonExhaustivePatternMatching  notElem
-not
 *Main> nonExhaustivePatternMatching 5
 "five"
 *Main> nonExhaustivePatternMatching 6
 "*** Exception: baby.hs:(22,1)-(26,39): Non-exhaustive patterns in function nonExhaustivePatternMatching
+```
 
 Page 29: a runtime error can be produced with the keyword / operator (?) ``error``:
 
+```
 head' :: [a] -> a
 head' [] = error "Can't call head on an empty list, dummy!"
 head' (x:_) = x
+```
 
 Page 30: a list with only one element is called a ``a singleton list``
 
 Page 30: apparently, there is no problem defining the recursion as the last part of the function or not:
 
+```
 length' :: (Num b) => [a] -> b
 length' [] = 0
 length' (_:xs) = 1 + length' xs
@@ -337,13 +393,13 @@ length'' :: (Num b) => [a] -> b
 length'' [] = 0
 length'' (_:xs) = length'' xs + 1
 
-
 *Main> :l baby.hs
 [1 of 1] Compiling Main             ( baby.hs, interpreted )
 Ok, modules loaded: Main.
 *Main> let st = "qwertyuiopasdfghjklñ."
 *Main> (length st == length' st) && (length'' st == length st)
 True
+```
 
 Page 31: guards. similar to an if-then-else.
 
@@ -351,28 +407,36 @@ evaluates boolean expressions, and enters only on the first one.
 
 Page 35: defining variables in the local scope:
 
+```
 Prelude> [let square x = x * x in (square 5, square 3, square 2)]
 [(25,9,4)]
+```
 
 Therefore, they're not available outside the local scope:
 
+```
 Prelude> let square x = x * x in (square 5, square 3, square 2)
 (25,9,4)
 Prelude> square
 
 <interactive>:223:1: Not in scope: `square'
+```
 
 Page 45:
 
+```
 compareWithHundred :: (Num a, Ord a) => a -> Ordering
 compareWithHundred x = compare 100 x
 
 compareWithHundred :: (Num a, Ord a) => a -> Ordering
 compareWithHundred = compare 100
+```
 
 are equivalent. See 
 
+```
 compareWithHundred x = compare 100 x
+```
 
 as an equation. As x is on both sides, it can be removed
 
@@ -382,6 +446,8 @@ Page 49: filter
 Page 54: Lambda
 
 Note: it cannot be written directly to the GHCi:
+
+```
 Prelude> (\a b -> a + b)
 
 <interactive>:234:1:
@@ -394,6 +460,7 @@ it has to be assigned to a variable:
 Prelude> let sum = (\a b -> a + b)
 Prelude> sum 1 2
 3
+```
 
 
 Page 55: why sometimes foldr and others foldl?
@@ -410,6 +477,8 @@ Wrong implementation (defect in order):
 Wrong implementation (expensive):
 
 -- the collection is not expressed
+
+```
 *Main> let map_left f = foldl (\acc current -> acc++[(f current)]) []
 *Main> [1]++[2]
 [1,2]
@@ -417,10 +486,11 @@ Wrong implementation (expensive):
 [2,3]
 *Main> map_left succ (map_left succ [1,2])
 [3,4]
-
+```
 
 Wrong (typo in syntax "::" vs ":"):
 
+```
 *Main> let map_right f = foldr (\current acc -> (f current)::acc) []
 
 <interactive>:271:43:
@@ -437,27 +507,33 @@ Wrong (typo in syntax "::" vs ":"):
     In the first argument of `foldr', namely
       `(\ current acc -> (f current) :: acc)'
     In the expression: foldr (\ current acc -> (f current) :: acc) []
+```
 
 After fixing the syntax error: 
 
+```
 *Main> let map_right f = foldr (\current acc -> (f current):acc) []
 *Main> map_right succ [1,2]
 [2,3]
+```
 
 to see the time difference, activate this in the REPL:
 
+```
 *Main> :set +s
 *Main> map_left succ (take 10000 [1..])
 [...]
 (5.48 secs, 2.081.744.552 bytes)
+```
 
 After 5 executions, the results are: average = 5,89s, stdev = 0,54s. values=6,08;6,75;5,43;5,71;5,48;5,89;
 
+```
 *Main> map_right succ (take 10000 [1..])
 (2.20 secs,    19.293.144 bytes)
+```
 
 After 5 executions, the results are: average = 2,17s, stdev = 0,33s. values=2,37;1,79;2,09;1,98;2,62;2,17;
-
 
 
 Page 55: 
@@ -467,6 +543,7 @@ work on infinite lists, whereas left ones don't!
 
 Page 56: implementing core functions using foldr1, foldr, foldl1, foldl:
 
+```
 *Main> let head' = foldr1 (\x _ -> x)
 (0.02 secs, 0 bytes)
 *Main> head' (take 1000000 [1..])
@@ -475,37 +552,48 @@ Page 56: implementing core functions using foldr1, foldr, foldl1, foldl:
 *Main> head (take 1000000 [1..])
 1
 (0.00 secs, 0 bytes)
+```
 
 Conclusion, even though the book says that is better to implement head using pattern matching, in terms of performance, it is apparently the same. Also, the measuring is too high for these amounts
 
 Page 56: scanr1
 
+```
 *Main> scanr1 (+) [1,2,3]
 [6,5,3]
+```
 
 Page 56: scanl1
 
+```
 *Main> scanl1 (+) [1,2,3]
 [1,3,6]
+```
 
 This can be seen as the list of f([x 0..k]), where k=0..n:
 
+```
 *Main> foldl1 (+) [1]
 1
 *Main> foldl1 (+) [1,2]
 3
 *Main> foldl1 (+) [1,2,3]
 6
+```
 
 -- warning: the first [1,2,3] are the elements to take, not the values
+```
 *Main> [foldl1 (+) x| size <- [1,2,3], let x =(take size [1,2,3])]
 [1,3,6]
+```
 
 More generic, without derived attributes (such as ``length xs``:
 
+```
 *Main> let xs = [1,2,3]
 *Main> [foldl1 (+) x| size <- [1..(length xs)], let x = (take size xs)]
 [1,3,6]
+```
 
 Note: filter does not work on infinite lists, prefer takeWhile
 
@@ -517,7 +605,9 @@ Page 61: Import
 
 Haven't read
 
+```
 *Main> ["7."++ show x|x<-[3..6]]
 ["7.3","7.4","7.5","7.6"]
+```
 
 finish reading at record syntax, page 88
