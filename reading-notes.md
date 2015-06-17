@@ -637,3 +637,16 @@ data Person = Person { firstName :: String
 					 , flavor :: String
 					 } deriving (Show)
 ````
+
+Page 90 - Type parameters:
+
+```
+*Main> :t Nothing
+Nothing :: Maybe a
+```
+
+Destructuring in the record (fragment, page 92):
+
+```
+tellCar (Car {company = c, model = m, year = y})
+```
