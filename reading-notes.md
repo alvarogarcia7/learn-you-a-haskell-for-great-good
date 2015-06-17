@@ -625,3 +625,15 @@ age (Person _ _ age _ _ _) = age
 ```
 
 Note: The equivalent for this in clojure: you create a record (either a record itself or a map) and create functions to manipulate said data. 
+
+How to define a record:
+
+````
+data Person = Person { firstName :: String
+					 , lastName :: String
+					 , age :: Int
+					 , height :: Float
+					 , phoneNumber :: String
+					 , flavor :: String
+					 } deriving (Show)
+````
