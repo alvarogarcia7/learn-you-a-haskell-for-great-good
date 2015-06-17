@@ -611,3 +611,17 @@ Haven't read
 ```
 
 finish reading at record syntax, page 88
+
+
+How to create methods for a record:
+
+```
+firstName :: Person -> String
+firstName (Person firstname _ _ _ _ _) = firstname
+lastName :: Person -> String
+lastName (Person _ lastname _ _ _ _) = lastname
+age :: Person -> Int
+age (Person _ _ age _ _ _) = age
+```
+
+Note: The equivalent for this in clojure: you create a record (either a record itself or a map) and create functions to manipulate said data. 
