@@ -587,7 +587,7 @@ This can be seen as the list of f([x 0..k]), where k=0..n:
 [1,3,6]
 ```
 
-More generic, without derived attributes (such as ``length xs``:
+More generic, without derived attributes (such as ``length xs``):
 
 ```
 *Main> let xs = [1,2,3]
