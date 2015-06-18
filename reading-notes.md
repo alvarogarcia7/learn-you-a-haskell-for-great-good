@@ -650,3 +650,6 @@ Destructuring in the record (fragment, page 92):
 ```
 tellCar (Car {company = c, model = m, year = y})
 ```
+
+Note: So don't put type constraints into data declarations even if it seems to make sense, because you'll
+have to put them into the function type declarations either way. (page 93). Idiomatic Haskell.
