@@ -653,3 +653,32 @@ tellCar (Car {company = c, model = m, year = y})
 
 Note: So don't put type constraints into data declarations even if it seems to make sense, because you'll
 have to put them into the function type declarations either way. (page 93). Idiomatic Haskell.
+
+Defining an enum:
+
+````
+*Main> data Day = Monday | Tuesday | Wednesday | Thursday | Friday | Saturday |Sunday deriving (Eq, Ord, Show, Read, Bounded, Enum)
+*Main> minBound :: Day
+Monday
+````
+
+Getting the range of values:
+
+````
+*Main> [minBound :: Day .. maxBound::Day]
+[Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday]
+````
+
+this is equivalent to this:
+
+````
+*Main> [minBound..maxBound] :: [Day]
+[Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday]
+````
+
+if you don't specify the type, it returns this:
+
+````
+*Main> [minBound..maxBound]
+[()]
+````
