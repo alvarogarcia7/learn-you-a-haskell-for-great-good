@@ -706,3 +706,14 @@ Monday
     In the expression: [minBound .. minBound] :: Day
     In an equation for `it': it = [minBound .. minBound] :: Day
 ````
+
+finding its position:
+
+````
+*Main> (minBound :: Day) `Data.List.elemIndex` ([minBound..maxBound] :: [Day])
+Just 0
+*Main> (maxBound :: Day) `Data.List.elemIndex` ([minBound..maxBound] :: [Day])
+Just 6
+````
+
+(Source for this function is http://stackoverflow.com/questions/1496980/finding-index-of-element-in-a-list-in-haskell)
