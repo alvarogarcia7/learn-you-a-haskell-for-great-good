@@ -727,3 +727,6 @@ Page 103: insight on pattern matching:
 
 >Because pattern matching works (only) on constructors, we can match for stuff like that, normal prefix constructors or stuff like 8 or 'a', which are basically constructors for the numeric and character types, respectively.
 
+Page 104: insight on pointers:
+
+> Haskell doesn't really have a concept of pointer, just values
