@@ -730,3 +730,26 @@ Page 103: insight on pattern matching:
 Page 104: insight on pointers:
 
 > Haskell doesn't really have a concept of pointer, just values
+
+Page 109:
+
+Getting info from a type:
+
+````
+*Main> :info Day
+data Day
+  = Monday
+  | Tuesday
+  | Wednesday
+  | Thursday
+  | Friday
+  | Saturday
+  | Sunday
+        -- Defined at baby.hs:44:1
+instance Bounded Day -- Defined at baby.hs:44:112
+instance Enum Day -- Defined at baby.hs:44:121
+instance Eq Day -- Defined at baby.hs:44:91
+instance Ord Day -- Defined at baby.hs:44:95
+instance Read Day -- Defined at baby.hs:44:106
+instance Show Day -- Defined at baby.hs:44:100
+````
