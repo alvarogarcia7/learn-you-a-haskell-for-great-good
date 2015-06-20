@@ -753,3 +753,10 @@ instance Ord Day -- Defined at baby.hs:44:95
 instance Read Day -- Defined at baby.hs:44:106
 instance Show Day -- Defined at baby.hs:44:100
 ````
+
+Page 115:
+
+````
+:k for kind
+:t for type
+````
