@@ -38,3 +38,7 @@ length'' (_:xs) = length'' xs + 1
 
 sum' :: (Num a) => [a] -> a
 sum' xs = foldl (\acc x -> acc + x) 0 xs
+
+-- enum, page 97
+
+data Day = Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday deriving (Eq, Ord, Show, Read, Bounded, Enum)

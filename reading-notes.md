@@ -689,3 +689,20 @@ This will output all Int, from the minimum to the maximum (warning: this might t
 *Main> [minBound..maxBound] :: [Int]
 [-2147483648,-2147483647,-2147483646,-2147483645,-2147483644,-2147483643,-2147483642,-2147483641,-2147483640,-2147483639,-2147483638,-2147483637,-2147483636,-2147483635,-2147483634,-2147483633,-2147483632,-2147483631,-2147483630,-2147483629,-2147483628,-2147483627,-2147483626,-2147483625,-2147483624,-2147483623,-2147483622,-2147483621,-2147483620,-2147483619,-2147483618,-2Interrupted.
 ````
+
+2015-06-20 1151
+
+````
+*Main> [minBound..minBound] :: [Day]
+[Monday]
+
+*Main> minBound :: Day
+Monday
+
+*Main> [minBound..minBound] :: Day
+
+<interactive>:7:1:
+    Couldn't match expected type `Day' with actual type `[t0]'
+    In the expression: [minBound .. minBound] :: Day
+    In an equation for `it': it = [minBound .. minBound] :: Day
+````
