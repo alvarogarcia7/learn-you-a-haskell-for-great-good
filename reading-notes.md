@@ -716,4 +716,4 @@ Just 0
 Just 6
 ````
 
-(Source for this function is http://stackoverflow.com/questions/1496980/finding-index-of-element-in-a-list-in-haskell)
+(Source for this function is http://stackoverflow.com/questions/1496980/finding-index-of-element-in-a-list-in-haskell, also page 72)
