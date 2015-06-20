@@ -760,3 +760,5 @@ Page 115:
 :k for kind
 :t for type
 ````
+
+end reading session at page 119
