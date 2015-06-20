@@ -717,3 +717,5 @@ Just 6
 ````
 
 (Source for this function is http://stackoverflow.com/questions/1496980/finding-index-of-element-in-a-list-in-haskell, also page 72)
+
+Page 98: Data clump can be done using type synonyms
