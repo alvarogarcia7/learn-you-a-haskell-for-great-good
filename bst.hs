@@ -1,7 +1,10 @@
-data Tree a = EmptyTree | Node a (Tree a) (Tree a) deriving (Show, Read, Eq)
---instance Show (Tree a) where
---show EmptyTree = "[]"
---show x = "__"
+data Tree a = 
+    EmptyTree |
+    Node a (Tree a) (Tree a) deriving (Read, Eq)
+instance Show a => Show (Tree a) where
+	show EmptyTree = ""
+	show (Node v l r) = show l ++ " " ++ show v ++ show r 
+
 
 singleton :: a -> Tree a
 singleton x = Node x EmptyTree EmptyTree
