@@ -1,0 +1,1 @@
+data MyTree a = EmptyTree | Node a (MyTree a) (MyTree a)
