@@ -12,8 +12,11 @@ treeAdd (Node n left right) v
     where nn = Node n
 
 inOrderString :: (Show a) => MyTree a -> String
-inOrderString EmptyTree = ""
-inOrderString (Node n left right) = (inOrderString left) ++ show n ++ " " ++ (inOrderString right)
+inOrderString t = toString (inOrder t)
+
+toString :: (Show a) => [a] -> String
+toString [] = ""
+toString (head:tail) = show head ++ " " ++ (toString tail)
 
 inOrder :: MyTree a -> [a]
 inOrder EmptyTree = []
