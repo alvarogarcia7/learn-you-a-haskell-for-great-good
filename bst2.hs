@@ -10,3 +10,8 @@ treeAdd (Node n left right) v
     | v == n = nn left right
     | v > n = nn left (treeAdd right v)
     where nn = Node n
+
+inOrderString :: (Show a) => MyTree a -> String
+inOrderString EmptyTree = ""
+inOrderString (Node n left right) = (inOrderString left) ++ show n ++ " " ++ (inOrderString right)
+
