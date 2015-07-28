@@ -13,3 +13,6 @@ add v (N l n r)
 inOrder :: T v -> [v]
 inOrder Nil = []
 inOrder (N l n r) = (inOrder l) ++ [n] ++ (inOrder r)
+
+fromList :: (Ord v) => [v] -> T v
+fromList (head:tail) = foldr add (t head) (reverse tail)
