@@ -15,3 +15,7 @@ inOrderString :: (Show a) => MyTree a -> String
 inOrderString EmptyTree = ""
 inOrderString (Node n left right) = (inOrderString left) ++ show n ++ " " ++ (inOrderString right)
 
+inOrder :: MyTree a -> [a]
+inOrder EmptyTree = []
+inOrder (Node n left right) =  (inOrder left) ++ [n] ++ (inOrder right)
+
