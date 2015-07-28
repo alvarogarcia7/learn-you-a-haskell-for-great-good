@@ -5,7 +5,7 @@ singletonTree a = Node a EmptyTree EmptyTree
 
 treeAdd :: (Ord a) => MyTree a -> a -> MyTree a
 treeAdd EmptyTree v = singletonTree v
-treeAdd (Node v left right) a
-    | a < v = Node v (treeAdd left a) right
-    | a == v = Node v left right
-    | a > v = Node v left (treeAdd right a)
+treeAdd (Node n left right) v
+    | v < n = Node n (treeAdd left v) right
+    | v == n = Node n left right
+    | v > n = Node n left (treeAdd right v)
