@@ -16,3 +16,8 @@ inOrder (N l n r) = (inOrder l) ++ [n] ++ (inOrder r)
 
 fromList :: (Ord v) => [v] -> T v
 fromList (head:tail) = foldr add (t head) (reverse tail)
+
+; how to use it
+; > t 1
+; > add 2 $ t 1
+; > inOrder $ add 2 $ t1
