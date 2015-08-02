@@ -761,4 +761,17 @@ Page 115:
 :t for type
 ````
 
-end reading session at page 119
+Page 160:
+
+Definitions for errors (in a ``catch``). These are predicates acting on IOError:
+
+````
+isAlreadyExistsError
+isDoesNotExistError
+isAlreadyInUseError
+isFullError
+isEOFError
+isIllegalOperation
+isPermissionError
+isUserError
+````
