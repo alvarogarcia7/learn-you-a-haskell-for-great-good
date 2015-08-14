@@ -6,9 +6,9 @@ fizzbuzz n = take n $ zipWith ($) (cycle [s,s,f,s,b,f,s,s,f,b,s,f,s,s,fb]) [1..]
   b=const"buzz"
   fb=const"fizzbuzz"
 
-binaryValues = cycle [1,2]
 -- generates list with [1,2,1,2,...]
 -- use it as: take 10 binaryValues
+binaryValues = cycle [1,2]
 
 -- generates an infinite list of repeated elements, removing each second value
 -- [1,1,3,3,5,5,...]
