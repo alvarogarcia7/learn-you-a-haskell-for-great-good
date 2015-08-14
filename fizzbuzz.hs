@@ -13,3 +13,6 @@ binaryValues = cycle [1,2]
 -- generates an infinite list of repeated elements, removing each second value
 -- [1,1,3,3,5,5,...]
 repeatedNumbers = zipWith ($) (cycle [id,(\x -> x - 1)]) [1..]
+
+-- shorter way of generating repeatedNumbers, using the partial function add
+repeatedNumbers' = zipWith ($) (cycle [id,(-1 +)]) [1..]
