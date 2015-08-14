@@ -16,3 +16,6 @@ repeatedNumbers = zipWith ($) (cycle [id,(\x -> x - 1)]) [1..]
 
 -- shorter way of generating repeatedNumbers, using the partial function add
 repeatedNumbers' = zipWith ($) (cycle [id,(-1 +)]) [1..]
+
+-- an infinite list where one is positive, one is negative
+posNeg =  zipWith ($) (cycle [id,negate]) [1..]
