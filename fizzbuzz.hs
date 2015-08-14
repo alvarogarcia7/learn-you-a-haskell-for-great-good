@@ -19,3 +19,6 @@ repeatedNumbers' = zipWith ($) (cycle [id,(-1 +)]) [1..]
 
 -- an infinite list where one is positive, one is negative
 posNeg =  zipWith ($) (cycle [id,negate]) [1..]
+
+-- an infinite list where this pattern repeats: positve, negative, positive
+posNegPos =  zipWith ($) (cycle [id,negate,id]) [1..]
